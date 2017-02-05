@@ -12,7 +12,7 @@ public class ProxyClassFactoryBinder implements IProxyClassFactoryBinder {
             public List<ProxyBean> getProxyBeanList() {
                 List<ProxyBean> proxyBeanList = new ArrayList<ProxyBean>();
                 proxyBeanList.add(new ProxyBean("com.litmonk.jsaspectj.TestProxyImpl", "joinString",
-                        TestAroundAspectJHandleImpl.class));
+                        TestAroundAspectJHandleImpl.class.getName()));
                 return proxyBeanList;
             }
         };

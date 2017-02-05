@@ -23,7 +23,7 @@ public class ClassMethodProxyTest {
     @Test
     public void test_proxyClassMethod_success() throws NotFoundException, CannotCompileException {
         ClassMethodProxy.proxyClassMethod("com.litmonk.jsaspectj.TestProxyImpl1", "joinString",
-                TestAroundAspectJHandleImpl.class);
+                TestAroundAspectJHandleImpl.class.getName());
 
         String rStr = new TestProxyImpl1().joinString("S1", "S2");
 

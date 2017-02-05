@@ -17,12 +17,12 @@ public class ProxyBean {
     /**
      * 切面处理实现类，继承自IAroundAspectJHandler
      */
-    private Class aroundAspectJHandlerImpl;
+    private String aroundAspectJHandlerImplClass;
 
-    public ProxyBean(String proxyClass, String methodName, Class aroundAspectJHandlerImpl) {
+    public ProxyBean(String proxyClass, String methodName, String aroundAspectJHandlerImplClass) {
         this.proxyClass = proxyClass;
         this.methodName = methodName;
-        this.aroundAspectJHandlerImpl = aroundAspectJHandlerImpl;
+        this.aroundAspectJHandlerImplClass = aroundAspectJHandlerImplClass;
     }
 
     public String getProxyClass() {
@@ -41,11 +41,11 @@ public class ProxyBean {
         this.methodName = methodName;
     }
 
-    public Class getAroundAspectJHandlerImpl() {
-        return aroundAspectJHandlerImpl;
+    public String getAroundAspectJHandlerImplClass() {
+        return aroundAspectJHandlerImplClass;
     }
 
-    public void setAroundAspectJHandlerImpl(Class aroundAspectJHandlerImpl) {
-        this.aroundAspectJHandlerImpl = aroundAspectJHandlerImpl;
+    public void setAroundAspectJHandlerImplClass(String aroundAspectJHandlerImplClass) {
+        this.aroundAspectJHandlerImplClass = aroundAspectJHandlerImplClass;
     }
 }

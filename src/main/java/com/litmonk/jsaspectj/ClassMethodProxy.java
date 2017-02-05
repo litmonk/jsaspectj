@@ -51,7 +51,7 @@ public class ClassMethodProxy {
         if (proxyBean != null) {
             try {
                 return proxyClassMethod(proxyBean.getProxyClass(), proxyBean.getMethodName(),
-                        proxyBean.getAroundAspectJHandlerImpl());
+                        proxyBean.getAroundAspectJHandlerImplClass());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -69,7 +69,7 @@ public class ClassMethodProxy {
      * @throws NotFoundException
      * @throws CannotCompileException
      */
-    public static Class proxyClassMethod(String proxyClass, String methodName, Class aroundAspectJHandlerImplClass)
+    public static Class proxyClassMethod(String proxyClass, String methodName, String aroundAspectJHandlerImplClass)
             throws NotFoundException, CannotCompileException {
         ClassPool classPool = ClassPool.getDefault();
         classPool.appendClassPath(new LoaderClassPath(Thread.currentThread().getContextClassLoader()));
@@ -77,7 +77,7 @@ public class ClassMethodProxy {
         CtClass ctProxyClass = classPool.get(proxyClass);
         CtMethod ctProxyMethod = ctProxyClass.getDeclaredMethod(methodName);
 
-        aroundAspectJMethod(proxyClass, ctProxyClass, ctProxyMethod, aroundAspectJHandlerImplClass.getName());
+        aroundAspectJMethod(proxyClass, ctProxyClass, ctProxyMethod, aroundAspectJHandlerImplClass);
 
         return ctProxyClass.toClass();
     }
